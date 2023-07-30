@@ -30,6 +30,7 @@ def create_database(database_name: str, params: dict):
     with conn.cursor() as cur:
         cur.execute("""
             CREATE TABLE vacancies (
+                vacancy_id SERIAL PRIMARY KEY,
                 company VARCHAR(255) REFERENCES employees(company) NOT NULL,
                 vacancy_title VARCHAR(255) NOT NULL,
                 vacancy_url TEXT,
